@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthInterceptorService implements HttpInterceptor {
 
-  constructor() { }
+  constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return from(this.handleAccess(request, next));
@@ -18,24 +18,24 @@ export class AuthInterceptorService implements HttpInterceptor {
 
   private async handleAccess(request: HttpRequest<any>, next: HttpHandler): Promise<HttpEvent<any>> {
 
-    // // Only add an access token for secured endpoints
-    // const theEndpoint = environment.rainbowApiUrl +'/orders';
-    // const securedEndpoints = [theEndpoint];
+    // Only add an access token for secured endpoints
+    const theEndpoint = environment.rainbowApiUrl +'/orders';
+    const securedEndpoints = [theEndpoint];
 
-    // if (securedEndpoints.some(url => request.urlWithParams.includes(url))) {
+    if (securedEndpoints.some(url => request.urlWithParams.includes(url))) {
 
-    //   // get access token
-    //   const accessToken = this.oktaAuth.getAccessToken();
+      // get access token
+      const accessToken = this.oktaAuth.getAccessToken();
 
-    //   console.log("From Interceptor :",accessToken);
+      console.log("From Interceptor :",accessToken);
 
-    //   // clone the request and add new header with access token
-    //   request = request.clone({
-    //     setHeaders: {
-    //       Authorization: 'Bearer ' + accessToken
-    //     }
-    //   });
-    // }
+      // clone the request and add new header with access token
+      request = request.clone({
+        setHeaders: {
+          Authorization: 'Bearer ' + accessToken
+        }
+      });
+    }
 
     console.log("From Interceptor out of If :",request);
 
