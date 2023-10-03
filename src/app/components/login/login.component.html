@@ -1,9 +1,4 @@
-<div class="formcss">
-<form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)" >
-    <input type = "text" name = "emailid" placeholder = "emailid" ngModel>
-    <br/>
-    <input type = "password" name = "passwd" placeholder = "passwd" ngModel>
-    <br/>
-    <input type = "submit" value = "submit">
- </form>
+<!-- Container to inject the Okta Sign-In Widget -->
+<div class="pt-5">
+    <div id="okta-sign-in-widget" class="pt-5"></div>
 </div>
