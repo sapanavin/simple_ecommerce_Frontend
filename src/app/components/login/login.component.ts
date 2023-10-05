@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
-      console.log(this.oktaSignin);
+     // console.log(this.oktaSignin);
     console.log("from ngOnInit in okta login component");
     this.oktaSignin.remove();
 
@@ -45,10 +45,10 @@ export class LoginComponent implements OnInit {
       (response: any) => {
         if (response.status === 'SUCCESS') {
           console.log("from response in okta login component",response);
-          //this.oktaAuth.signInWithRedirect();;
-          const token = this.oktaAuth.getAccessToken();
+          this.oktaAuth.signInWithRedirect();;
+          //const token = this.oktaAuth.getAccessToken();
           //console.log(token);
-          this.router.navigate(['products']);
+          //this.router.navigate(['orders']);
           
          // this.oktaAuth.handleLoginRedirect();
          //this.oktaAuth.signInWithRedirect()
