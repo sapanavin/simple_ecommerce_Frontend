@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { OktaAuth } from '@okta/okta-auth-js';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
+import { LoginStatusComponent } from './components/login-status/login-status.component';
 
 
 function sendToLoginPage(oktaAuth: OktaAuth, injector: Injector) {
@@ -28,7 +29,7 @@ const routes: Routes = [
 
   {path: 'login', component: LoginComponent},
   
-  
+  {path: 'authstatus', component: LoginStatusComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'cart-details', component: CartDetailsComponent},
   {path: 'products/:id', component: ProductDetailsComponent},
