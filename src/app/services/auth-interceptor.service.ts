@@ -35,9 +35,9 @@ export class AuthInterceptorService implements HttpInterceptor {
           Authorization: 'Bearer ' + accessToken
         }
       });
-   }
+    }
 
-    console.log("From Interceptor out of If  request.headers :",request.headers);
+    console.log("From Interceptor out of If :",request);
 
     return await lastValueFrom(next.handle(request));
   }
