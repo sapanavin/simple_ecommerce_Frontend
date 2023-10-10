@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
-console.log(this.oktaSignin);
+//console.log(this.oktaSignin);
     console.log("from ngOnInit in okta login component");
     this.oktaSignin.remove();
 

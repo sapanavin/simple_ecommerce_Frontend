@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, ContentChild, ElementRef, Inject, Input, OnInit, ViewChild } from '@angular/core';
 import { OktaAuthStateService, OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 
@@ -7,7 +7,34 @@ import { OktaAuth } from '@okta/okta-auth-js';
   templateUrl: './login-status.component.html',
   styleUrls: ['./login-status.component.css']
 })
-export class LoginStatusComponent implements OnInit {
+export class LoginStatusComponent implements OnInit, AfterViewInit{
+
+  //Content Child
+  @ViewChild("rightpos") rightpos!  : ElementRef;
+    
+  ngAfterViewInit(): void {
+
+    //Content Child
+    console.log(this.rightpos);
+    //this.rightpos.nativeElement.setAttribute('style','color: blue');
+    
+  }
+  showNavbar(){
+    
+    console.log(" inside showNavbar()");
+    this.rightpos.nativeElement.style.backgroundColor="white";
+    if(this.rightpos.nativeElement.style.right === '-300px'){
+          this.rightpos.nativeElement.style.right=0;
+          this.rightpos.nativeElement.style.backgroundColor="white";
+    }
+    else{
+     
+      this.rightpos.nativeElement.style.right='-300px';
+      
+    }
+    
+   
+  }
 
   isAuthenticated: boolean = false;
   userFullName: string = '';
