@@ -28,6 +28,7 @@ import myAppConfig from './config/my-app-config';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 
 const oktaConfig = myAppConfig.oidc;
 
@@ -57,7 +58,11 @@ const oktaAuth = new OktaAuth(oktaConfig);
     NgbModule,
     ReactiveFormsModule,
     OktaAuthModule,
-    FormsModule
+    FormsModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground: true,
+    }),
   ],
   providers: [ProductService, { provide: OKTA_CONFIG, useValue: { oktaAuth }},
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true}],

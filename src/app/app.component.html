@@ -1,71 +1,83 @@
-<div class="page-wrapper">
 
-  <!-- MENU SIDEBAR-->
-  <aside class="menu-sidebar d-none d-lg-block">
-    <div class="logo">
-      <a routerLink="/products">
-        <!-- <img src="assets/images/logo.png" alt="luv2shop" class="img-responsive"> -->
-        <img src="assets/images/logo5.png" alt="DreamShopping" class="img-responsive">
-      
-         </a>
-    </div>
+<ngx-ui-loader 
+fgsColor="#0da8e4"
+text="Please Wait.."
+textColor="#0da8e4"
+pbColor="#0da8e4"
+pbThickness="6"></ngx-ui-loader>
 
-    <app-product-category-menu></app-product-category-menu>
+<div ngxUiLoaderBlurred blur="6">
+  <!-- This page content will be blurred/frosted when foreground loader is showed -->
 
-  </aside>
-  <!-- END MENU SIDEBAR-->
 
-  <div class="page-container">
-    <!-- HEADER DESKTOP-->
-    <header class="header-desktop">
-      <div class="section-content section-content-p30">
-        <div class="container-fluid">
-          <div class="header-wrap">
-            <div class="logo" id="esm_screen_disp_only">
-              <a routerLink="/products">
-                <!-- <img src="assets/images/logo.png" alt="luv2shop" class="img-responsive"> -->
-                <img src="assets/images/logo5.png" alt="DreamShopping" class="img-responsive">
+      <div class="page-wrapper">
+
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+          <div class="logo">
+            <a routerLink="/products">
+              <!-- <img src="assets/images/logo.png" alt="luv2shop" class="img-responsive"> -->
+              <img src="assets/images/logo5.png" alt="DreamShopping" class="img-responsive">
+            
+              </a>
+          </div>
+
+          <app-product-category-menu></app-product-category-menu>
+
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <div class="page-container">
+          <!-- HEADER DESKTOP-->
+          <header class="header-desktop">
+            <div class="section-content section-content-p30">
+              <div class="container-fluid">
+                <div class="header-wrap">
+                  <div class="logo" id="esm_screen_disp_only">
+                    <a routerLink="/products">
+                      <!-- <img src="assets/images/logo.png" alt="luv2shop" class="img-responsive"> -->
+                      <img src="assets/images/logo5.png" alt="DreamShopping" class="img-responsive">
+                    
+                      </a>
+                      </div>
+                  <div  id="extra_esm_screen_hide">
+                    <p  >{{title}}</p>
+                    
               
-                 </a>
-                </div>
-            <div  id="extra_esm_screen_hide">
-              <p  >{{title}}</p>
-              
-        
-          </div >
-           
-          
-            <app-search id="esm_screen_hide_only" ></app-search>
+                </div >
+                
+                
+                  <app-search id="esm_screen_hide_only" ></app-search>
 
-           <app-login-status #myNavbar></app-login-status>
-          
-            <app-cart-status></app-cart-status>
-          
-            <button id="esm_screen_disp_only" (click)="showNavbar1()" class="btn btn-primary btn-md">
-              <i class="fas fa-outdent"></i>
-          </button>
-          
-        </div>
-          
-          
-          <div class="account-wrap"></div>
+                <app-login-status #myNavbar></app-login-status>
+                
+                  <app-cart-status></app-cart-status>
+                
+                  <button id="esm_screen_disp_only" (click)="showNavbar1()" class="btn btn-primary btn-md">
+                    <i class="fas fa-outdent"></i>
+                </button>
+                
+              </div>
+                     <div class="account-wrap"></div>
+              </div>
+            </div>
+          </header>
+          <!-- END HEADER DESKTOP-->
+
+          <!-- MAIN CONTENT-->
+          <router-outlet></router-outlet>
+
         </div>
       </div>
-    </header>
-    <!-- END HEADER DESKTOP-->
 
-    <!-- MAIN CONTENT-->
-    <router-outlet></router-outlet>
+      <!-- ENDS PAGE CONTAINER -->
 
-  </div>
+      <footer>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </footer>
+
 </div>
-
-<!-- ENDS PAGE CONTAINER -->
-
-<footer>
-  <ul>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Contact Us</a></li>
-    <li><a href="#">Help</a></li>
-  </ul>
-</footer>
